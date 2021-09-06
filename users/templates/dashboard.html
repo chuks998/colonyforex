@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <title>your dashboard</title>
+</head>
+<body>
+    <header>
+        <div class="logo-cont">
+            <strong>colony</strong> <p>forex signals</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">home</a></li>
+                <li><a href="{% url 'analysis' %}">analysis</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="auth" href="{% url 'profile' %}">profile</a></li>
+                <li><a class="auth" href="{% url 'logout' %}">logout</a></li>
+                {% else %}
+                <li><a class="auth" href="{% url 'register' %}">sign up</a></li>
+                <li><a class="auth" href="{% url 'login' %}">login</a></li>
+                {% endif %}
+            </ul>
+            <span>menu</span>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <figure class="profile-img">
+            {% for post in profile %}
+            <div class="pp">
+                <img src="{{ user.profile.image.url }}" alt="{{user.username}}">
+            </div>
+            {% endfor %}
+            <div class="profile-detail">
+                <ul>
+                    <li><strong>{{user.username}}</strong></li>
+                    <li><small>{{user.email}}</small></li>
+                </ul>
+            </div>
+            <div class="bio">
+                {% for word in profile %}
+                <h2>
+                    {{word.bio}}
+                </h2>
+                {% endfor %}
+            </div>
+        </figure>
+        <div class="info">
+            <div class="post-number">23 posts</div>
+            
+            <div class="like-number">3 like</div>
+            <div class="dislike-number">2 total dislikes</div>
+            
+        </div>
+        <div class="make-post">
+            <a href="{% url 'new analysis' %}">create new post</a>
+        </div>
+    </div>
+
+    <script src="/static/jquary.js"></script>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>

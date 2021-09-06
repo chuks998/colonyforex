@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/analysis.css">
+    <title>analysis</title>
+</head>
+<body>
+    <header>
+        <div class="logo-cont">
+            <strong>colony</strong> <p>forex signals</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">home</a></li>
+                <li><a href="{% url 'analysis' %}">analysis</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="auth" href="{% url 'profile' %}">profile</a></li>
+                <li><a class="auth" href="{% url 'logout' %}">logout</a></li>
+                {% else %}
+                <li><a class="auth" href="{% url 'register' %}">sign up</a></li>
+                <li><a class="auth" href="{% url 'login' %}">login</a></li>
+                {% endif %}
+            </ul>
+            <span>menu</span>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        {% for post in analysis %}
+            <figure>
+                <div class="img-box">
+                    <img class="img" src="{{post.image.url}}" alt="">
+                </div>
+                <div class="content">
+                    <div class="heading">
+                        <strong>{{post.post_title}}</strong>
+                    </div>
+                    <div class="summary">
+                        {{post.post_subject}}
+                    </div>
+                    <div class="link-box">
+                        <a href="{% url 'analysis_detail' post.id %}">show this</a>
+                    </div>
+                </div>
+                <div class="info">
+                    <li><small>posted: {{post.date_created}}</small></li>
+                    <li><small>by: <a href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a></small></li>
+                </div>
+            </figure>
+        {% endfor %}
+
+        {% if is_paginated %}
+
+            {% if page_obj.has_previous %}
+                <!-- <a class="btn" href="?page=1">first</a> -->
+                <a class="btn" href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <!-- {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <a class="btn" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                    <a class="btn" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+            {% endfor %} -->
+
+            {% if page_obj.has_next %}
+                <a class="btn" href="?page={{ page_obj.next_page_number }}">next</a>
+                <!-- <a class="btn" href="?page={{ page_obj.paginator.num_pages }}">last</a> -->
+            {% endif %}
+
+
+    {% endif %}
+
+    </div>
+    
+    <script src="/static/jquary.js"></script>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
+
+<style>
+    .btn{
+        color: orange;
+        border: 1px solid orange;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        margin: 10px auto;
+        width: 100px;
+    }
+    .btn:hover{
+        background-color: orange;
+        color: #f5f5f5;
+    }
+    .info li small a{
+        color: orange;
+    }
+</style>

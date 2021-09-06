@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm your action</title>
+</head>
+<body>
+    <div class="container">
+        <form  method="post">
+            {% csrf_token %}
+            <strong>you are about to delete this post "{{ object.post_title }}"</strong>
+            <div class="form-group">
+                <button class="items" type="submit">CONTINUE</button>
+                <a class="items" href="{% url 'analysis_detail' object.id %}">GO BACK</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    color: #3d3dff;
+    font-family: Roboto;
+    font-size: 18px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+}
+.container{
+    max-width: 70%;
+    min-width: 50%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    justify-items:center;
+    text-align: center;
+}
+.form-group{
+    width: 40%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    margin: 10px auto;
+    padding: 10px;
+}
+.form-group button{
+    width: 30%;
+    background-color: red;
+    border: none;
+    color: #fff;
+    padding: 10px;
+}
+.form-group button:hover{
+    background-color: #fff;
+    color: red;
+    border: 1px solid;
+}
+.form-group a{
+    color: orange;
+    padding: 10px 15px;
+    border: 1px solid;
+}
+.form-group a:hover{
+    color: #fff;
+    background-color: orange;
+    border: 1px solid orange;
+}
+strong{
+    font-size: 150%;
+    color: orange;
+}
+
+/* ipad design */
+@media only screen and (max-width:1024px){
+    *{
+    font-size: 14px;
+    }
+    
+    .form-group button{
+    width: 50%;
+    }
+    .form-group{
+        width: 50%;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-evenly;
+        margin: 10px auto;
+        padding: 10px;
+    }
+}  
+/* mobile design */
+@media only screen and (max-width:763px){
+    .container{
+        max-width: 100%;
+        min-width: 100%;
+    }
+    .form-group{
+        width: 90%;
+    }
+}
+</style>

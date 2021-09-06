@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #3d3dff;
+    font-family: Roboto;
+    font-size: 18px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+}
+
+.container{
+    max-width: 70%;
+    margin: 20px auto;
+    height: 100vh;
+}
+form{
+    height: 90%;
+}
+.form{
+    height: 90%;
+    border: none;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.form-sm{
+    margin: 0 5px;
+    height: fit-content;
+    border: none;
+}
+span{
+    display: none;
+}
+legend{
+    font-size: 150%;
+    color: orange;
+}
+label{
+    color: #33333380;
+    font-size: 120%;
+}
+ul{
+    display: none;
+}
+p{
+    margin: 20px 1px;
+}
+input{
+    min-width: 40%;
+    max-width: 95%;
+    height: 30px;
+    border-color: #ffa60080;
+    border-radius: 4px;
+}
+input:hover{
+    box-shadow: 1px 1px 7px 1px orange;
+}
+button{
+    background: none;
+    color: orange;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 5px 15px;
+    margin-left: 10px;
+}
+small{
+    color: #cccccc;
+    margin-left: 10px;
+}
+small a{
+    color: orange;
+}
+/* ipad design */
+@media only screen and (max-width:1024px){
+    *{
+        font-size: 14px;
+    }
+    .container{
+        height: 50vh;
+        box-shadow: 1px 1px 7px 1px #cccccc;
+    }
+    p{
+        margin: 10px 1px;
+    }
+}
+
+@media only screen and (max-width:763px){
+    .container{
+        height: 70vh;
+    }
+    p{
+        margin: 15px 0;
+    }
+}

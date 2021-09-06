@@ -1,0 +1,289 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #3d3dff;
+    font-family: Roboto;
+    font-size: 18px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    transition: ease-in-out .4s;
+    animation: float-in 2s;
+}
+body{
+    background-color: #f5f5f5;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* header section */
+header{
+    width: 100vw;
+    background-color: #f1f1f1;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 1px 7px #cccccc;
+    display: block;
+    z-index: 9999;
+}
+.logo-cont{
+    float: left;
+    border-radius: 4px;
+    margin: 20px 5px;
+    padding: 5px;
+}
+header strong{
+    font-size: 200%;
+    color: #6161ff;
+}
+header p{
+    font-size: 150%;
+    color: #cccccc;
+    display: inline;
+    text-transform: lowercase;
+}
+header nav{
+    width: 60%;
+    height: 50px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    margin-left: 50px;
+}
+header nav ul li{
+    display: inline;
+    float: left;
+}
+header nav ul li a{
+    margin: 0 30px;
+    background-color: #3d3dff;
+    color: #f5f5f5;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 90%;
+    font-weight: 200;
+}
+header nav ul li a:hover{
+    background-color: #f5f5f5;
+    color: #3d3dff;
+    font-weight: 400;
+    border: 1px solid #3d3dff;
+}
+header nav span{
+    display: none;
+}
+.auth{
+    background-color: orange;
+    font-weight: 400;
+    margin: 0 5px;
+}
+.auth:hover{
+    color: orange;
+    border: 1px solid orange;
+}
+
+.wrapper{
+    width: 90%;
+    min-height: 100vh;
+    min-height: calc(100vh - 105px);
+    background-color: #fff;
+    margin:105px auto 10px auto;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+figure{
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+}
+figure div{
+    max-height: 100%;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+}
+figure div img{
+    height: 100%;
+    width: 100%;
+}
+.text-box{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 20px auto;
+}
+.title{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+.title h2{
+    font-size: 250%;
+    color: #333;
+    text-decoration: underline;
+}
+.title small{
+    color: #cccccc;
+}
+.sub-title{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 20px auto;
+    justify-content: center;
+    text-align: center;
+}
+.sub-title h3{
+    font-size: 150%;
+    color: #444;
+}
+
+.likes{
+    display: flex;
+    height: 40px;
+    margin: 30px 0;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.likes a{
+    border: 1px solid orange;
+    border-radius: 4px;
+    color: orange;
+    padding: 5px 15px;
+}
+.likes .a{
+    border: 1px solid orange;
+    color: orange;
+    background-color: #fff;
+    border-radius: 4px;
+    color: orange;
+    padding: 5px 15px;
+}
+.likes .c{
+    border: 1px solid orange;
+    color: orange;
+    background-color: orange;
+    border-radius: 4px;
+    color: #f5f5f5;
+    padding: 5px 15px;
+}
+
+/* ipad design */
+@media only screen and (max-width:1024px){
+    *{
+        font-size: 20px;
+    }
+    header{
+        height: fit-content;
+    }
+    header strong{
+        font-size: 200%;
+    }
+    header p{
+        font-size: 150%;
+    }
+    header nav{
+        width: 70%;
+        height: 50px;
+        float: left;
+        margin: 2px auto;
+    }
+    header nav ul li{
+        display: inline;
+        float: left;
+    }
+    header nav ul li a{
+        margin: 0 25px;
+        font-size: 120%;
+        font-weight: 400;
+    }
+    .wrapper{
+        padding-top: 80px;
+    }
+    figure div{
+        max-height: 100%;
+        max-width: 90%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .text-box{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 20px auto;
+    }
+    .content{
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+}
+/* mobile design */
+@media only screen and (max-width:763px){
+    *{
+        font-size: 12px;
+    }
+    header{
+        height: fit-content;
+        max-height: 500px;
+        position: fixed;
+        top: 0;
+    }
+    header strong{
+        font-size: 250%;
+    }
+    header p{
+        font-size: 200%;
+    }
+    header nav{
+        width: -moz-fit-content;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        margin: 10px 0;
+        margin-left: 0;
+        float: left;
+    }
+    header nav ul li{
+        display: inline-block;
+    }
+    header nav ul li a{
+        margin: 0 15px;
+        padding: 5px 10px;
+        font-size: 105%;
+        font-weight: 400;
+        display: none;
+    }
+    @keyframes glow {
+        0%{box-shadow: none;}
+        100%{box-shadow: 1px 1px 7px orange;}
+    }
+    header nav span{
+        animation: glow 2s infinite;
+        color: orange;
+        border: 1px solid;
+        border-radius: 4px;
+        padding: 5px;
+        display: inline;
+        margin-top: 30px;
+        margin-left: 30px;
+        font-size: 110%;
+    }
+    .wrapper{
+        width: 100%;
+        height: fit-content;
+        min-height: calc(100vh - 105px);
+        padding-top: 30px;
+    }
+    
+}

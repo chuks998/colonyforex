@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/analysis_detail.css">
+    <title>{{object.author.username}} analysis</title>
+</head>
+<body>
+    <header>
+        <div class="logo-cont">
+            <strong>colony</strong> <p>forex signals</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">home</a></li>
+                <li><a href="{% url 'analysis' %}">analysis</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="auth" href="{% url 'profile' %}">profile</a></li>
+                <li><a class="auth" href="{% url 'logout' %}">logout</a></li>
+                {% else %}
+                <li><a class="auth" href="{% url 'register' %}">sign up</a></li>
+                <li><a class="auth" href="{% url 'login' %}">login</a></li>
+                {% endif %}
+            </ul>
+            <span>menu</span>
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <figure>
+            <div>
+                <img src="{{object.image.url}}" alt="">
+            </div>
+        </figure>
+        <div class="text-box">
+            <div class="title">
+                <h2>{{object.post_title}}</h2>
+                <small>published by: {{object.author.username}} on: {{object.date_created}}</small>
+            </div>
+            <div class="sub-title">
+                <h3>{{object.post_subject}}</h3>
+            </div>
+            <div class="content">
+                <p>
+                    {{object.post_body}}
+                </p>
+            </div>
+            <!-- testing -->
+            {% if user.is_authenticated %}
+                    <form class="likes" action="{% url 'analysis-like' object.id %}" method="post">
+                        {% csrf_token %}
+
+                        {% if post_is_liked %}
+                            <button type="submit" name="like" value="{{ object.id }}" class="a">you liked this {{ total_likes }}</button>
+                        {% else %}
+                            <button type="submit" name="like" value="{{ object.id }}" class="a">like {{ total_likes }}</button>
+                        {% endif %}
+                    </form>
+                    <form class="likes" action="{% url 'analysis-dislike' object.id %}" method="post">
+                        {% csrf_token %}
+                        {% if post_is_dis_liked %}
+                        <button type="submit" name="dislike" value="{{ object.id }}" class="a">you disliked this {{ total_dis_likes }}</button>
+                        {% else %}
+                        <button type="submit" name="dislike" value="{{ object.id }}" class="a">dislike {{ total_dis_likes }}</button>
+                        {% endif %}
+                    </form>
+            {% endif %}
+            {% if object.author == user %}
+                <div class="like">
+                    <li>
+                        <a class="update" href="{% url 'analysis-update' object.id %}">update this post</a>
+                        <a class="delete" href="{% url 'analysis-delete' object.id %}">delete this post</a>
+                    </li>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="/static/jquary.js"></script>
+    <script src="/static/scripts.js"></script>
+
+</body>
+</html>
+
+<style>
+    .like{
+        display: flex;
+        justify-self: center;
+        width: 100%;
+        min-height: 50px;
+        margin: 0 auto;
+    }
+    .like a{
+        padding: 10px;
+        display: inline;
+    }
+    .update{
+    color: #3d3dff;
+    background-color: #f5f5f5;
+    border: 1px solid #3d3dff;
+    flex: 0 0 50%;
+    }
+    .update:hover{
+        background-color: #3d3dff;
+        color: #f5f5f5;
+    }
+    .delete{
+    color: red;
+    background-color: #f5f5f5;
+    border: 1px solid;
+    }
+    .delete:hover{
+        background-color: red;
+        color: #f5f5f5;
+    }
+</style>

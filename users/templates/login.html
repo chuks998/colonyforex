@@ -1,0 +1,33 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/form.css">
+    <title>login to your account</title>
+</head>
+<body>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-sm">
+                <legend>login</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div>
+                <button type="submit"> login</button>
+                <br>
+                <small>
+                    <a href="#">forgotten your password?</a>
+                </small>
+            </div>
+            <div>
+                <small> don't have an account? <a href="{% url 'register' %}">create account</a></small>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>

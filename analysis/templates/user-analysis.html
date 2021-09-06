@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/analysis.css">
+    <title>{{ view.kwargs.username }} timeline</title>
+</head>
+<body>
+    <div class="information"><i>{{ view.kwargs.username }} has {{ page_obj.paginator.count }} posts</i></div>
+{% for post in user_post %}
+    <figure>
+        <div class="img-box">
+            <img class="img" src="{{post.image.url}}" alt="">
+        </div>
+        <div class="content">
+            <div class="heading">
+                <strong>{{post.post_title}}</strong>
+            </div>
+            <div class="summary">
+                {{post.post_subject}}
+            </div>
+            <div class="link-box">
+                <a href="{% url 'analysis_detail' post.id %}">show this</a>
+            </div>
+        </div>
+        <div class="info">
+            <li><small>posted: {{post.date_created}}</small></li>
+            <li><small>by: {{post.author}}</small></li>
+        </div>
+    </figure>
+{% endfor %}
+{% if is_paginated %}
+
+    {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+    {% endif %}
+
+    <!-- {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+            <a class="btn text-primary" href="?page={{ num }}">{{ num }}</a>
+        {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <a class="btn text-primary" href="?page={{ num }}">{{ num }}</a>
+        {% endif %}
+    {% endfor %} -->
+
+    {% if page_obj.has_next %}
+        <a class="btn text-primary" href="?page={{ page_obj.next_page_number }}">next</a>
+    {% endif %}
+{% endif %}
+</body>
+</html>
+
+
+<style>
+    .btn{
+        color: orange;
+        border: 1px solid orange;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        margin: 10px auto;
+        width: 100px;
+    }
+    .btn:hover{
+        background-color: orange;
+        color: #f5f5f5;
+    }
+    .img-box{
+        flex: 0 0 30%;
+        height: 100%;
+    }
+    .img{
+        margin-top: 5px;
+        width: 100%;
+        height: auto;
+        filter: blur(1.5px);
+    }
+    .img:hover{
+        filter: blur(0);
+    }
+    .information{
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+</style>

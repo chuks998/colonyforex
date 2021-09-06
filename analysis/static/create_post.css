@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #3d3dff;
+    font-family: Roboto;
+    font-size: 18px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    transition: ease-in-out .4s;
+    animation: float-in 2s;
+}
+body{
+    background-color: #f5f5f5;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* header section */
+header{
+    width: 100vw;
+    background-color: #f1f1f1;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    box-shadow: 1px 1px 7px #cccccc;
+    display: block;
+    z-index: 9999;
+}
+.logo-cont{
+    float: left;
+    border-radius: 4px;
+    margin: 20px 5px;
+    padding: 5px;
+}
+header strong{
+    font-size: 200%;
+    color: #6161ff;
+}
+header p{
+    font-size: 150%;
+    color: #cccccc;
+    display: inline;
+    text-transform: lowercase;
+}
+header nav{
+    width: 60%;
+    height: 50px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px auto;
+    margin-left: 50px;
+}
+header nav ul li{
+    display: inline;
+    float: left;
+}
+header nav ul li a{
+    margin: 0 30px;
+    background-color: #3d3dff;
+    color: #f5f5f5;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-size: 90%;
+    font-weight: 200;
+}
+header nav ul li a:hover{
+    background-color: #f5f5f5;
+    color: #3d3dff;
+    font-weight: 400;
+    border: 1px solid #3d3dff;
+}
+header nav span{
+    display: none;
+}
+.auth{
+    background-color: orange;
+    font-weight: 400;
+    margin: 0 5px;
+}
+.auth:hover{
+    color: orange;
+    border: 1px solid orange;
+}
+
+.wrapper{
+    width: 90%;
+    height: fit-content;
+    min-height: calc(100vh - 105px);
+    background-color: #fff;
+    margin:105px auto 10px auto;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+strong{
+    font-size: 150%;
+    font-weight: 200;
+    color: #cccccc;
+    width: 50%;
+    padding: 0 5px;
+}
+fieldset{
+    margin: 20px auto;
+    width: 70%;
+    box-shadow: 1px 1px 2px 1px #ffa60080;
+    border: none;
+    padding: 10px 5px;
+}
+legend{
+    font-size: 120%;
+    display: none;
+    color: #cccccc;
+}
+label{
+    color: #cccccc;
+    font-size: 120%;
+}
+input{
+    width: 70%;
+    margin: 15px 0;
+}
+#id_post_body{
+    height: 200px;
+    margin: 20px 0;
+}
+.btn-div{
+    margin: 5px auto;
+    width: 100px;
+}
+button{
+    width: 100%;
+    background-color: orange;
+    color: #f5f5f5;
+    border: none;
+}
+/* ipad design */
+@media only screen and (max-width:1024px){
+    *{
+        font-size: 20px;
+    }*{
+        font-size: 20px;
+    }
+    header{
+        height: fit-content;
+    }
+    header strong{
+        font-size: 200%;
+    }
+    header p{
+        font-size: 150%;
+    }
+    header nav{
+        width: 70%;
+        height: 50px;
+        float: left;
+        margin: 2px auto;
+    }
+    header nav ul li{
+        display: inline;
+        float: left;
+    }
+    header nav ul li a{
+        margin: 0 25px;
+        font-size: 120%;
+        font-weight: 400;
+    }
+    .wrapper .brand-box{
+        width: 100%;
+        margin-top: 200px;
+    }
+    .wrapper .post-box{
+        height: 150px;
+        width: 100%;
+    }
+    .wrapper .post-box .title-box li p{
+        font-size: 200%;
+    }
+    
+    fieldset{
+        margin: 20px auto;
+        width: 100%;
+        box-shadow: 1px 1px 2px 1px #ffa60080;
+        border: none;
+        padding: 10px 5px;
+    }
+
+}
+/* mobile design */
+@media only screen and (max-width:763px){
+    *{
+        font-size: 12px;
+    }
+    header{
+        height: fit-content;
+        max-height: 500px;
+        position: fixed;
+        top: 0;
+    }
+    header strong{
+        font-size: 250%;
+    }
+    header p{
+        font-size: 200%;
+    }
+    header nav{
+        width: -moz-fit-content;
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        margin: 10px 0;
+        margin-left: 0;
+        float: left;
+    }
+    header nav ul li{
+        display: inline-block;
+    }
+    header nav ul li a{
+        margin: 0 15px;
+        padding: 5px 10px;
+        font-size: 105%;
+        font-weight: 400;
+        display: none;
+    }
+    @keyframes glow {
+        0%{box-shadow: none;}
+        100%{box-shadow: 1px 1px 7px orange;}
+    }
+    header nav span{
+        animation: glow 2s infinite;
+        color: orange;
+        border: 1px solid;
+        border-radius: 4px;
+        padding: 5px;
+        display: inline;
+        margin-top: 30px;
+        margin-left: 30px;
+        font-size: 110%;
+    }
+    .wrapper{
+        width: 100%;
+        height: fit-content;
+        min-height: calc(100vh - 105px);
+        padding-top: 30px;
+    }
+    figure{
+        display: flex;
+        max-width: 90%;
+        max-height: 150px;
+        border-radius: 4px;
+        margin: 10px auto;
+        box-shadow: #cccccc 1px 1px 4px 1px;
+    }
+}

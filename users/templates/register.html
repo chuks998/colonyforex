@@ -1,0 +1,28 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/form.css">
+    <title>sign up with us today</title>
+</head>
+<body>
+    <div class="container">
+        <form  method="post">
+            {% csrf_token %}
+            <fieldset class="form">
+                <legend>account creation form</legend>
+                {{ form.as_p }}
+            </fieldset>
+            <div>
+                <button type="submit"> sign up</button>
+            </div>
+        </form>
+        <div>
+            <small> already have an account? <a href="{% url 'login' %}">login</a></small>
+        </div>
+    </div>
+</body>
+</html>

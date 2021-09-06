@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logged out!</title>
+</head>
+<body>
+    
+    <div class="container">
+        <strong>you are logged out!</strong>
+        <small>
+            <a class="login" href="{% url 'login' %}">log in</a>
+            <a class="home" href="{% url 'home' %}">go back to home page</a>
+        </small>
+    </div>
+</body>
+</html>
+
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    color: #3d3dff;
+    font-family: Roboto;
+    font-size: 18px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    }
+    .container{
+        max-width: 70%;
+        min-width: 50%;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        justify-items:center;
+        text-align: center;
+    }
+    strong{
+        font-size: 150%;
+        color: orange;
+    }
+    small{
+        margin-top: 20px;
+    }
+    a{
+        margin: 5px 10px;
+        border: 1px solid;
+        border-radius: 4px;
+        padding: 10px 15px;
+    }
+    .login:hover{
+        background-color: #3d3dff;
+        color: #fff;
+    }
+    .home{
+        color: orange;
+    }
+    .home:hover{
+        background-color: orange;
+        color: #fff;
+    }
+    @media only screen and (max-width:763px){
+        *{
+            font-size: 14px;
+        }
+    .container{
+        max-width: 100%;
+        min-width: 100%;
+    }
+    a{
+        padding: 5px 10px;
+    }
+}
+</style>

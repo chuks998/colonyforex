@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/create_post.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo-cont">
+            <strong>colony</strong> <p>forex signals</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">home</a></li>
+                <li><a href="{% url 'analysis' %}">analysis</a></li>
+                {% if user.is_authenticated %}
+                <li><a class="auth" href="{% url 'profile' %}">profile</a></li>
+                <li><a class="auth" href="{% url 'logout' %}">logout</a></li>
+                {% else %}
+                <li><a class="auth" href="{% url 'register' %}">sign up</a></li>
+                <li><a class="auth" href="{% url 'login' %}">login</a></li>
+                {% endif %}
+            </ul>
+            <span>menu</span>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <div>
+            <strong>dear {{ user.username }},<br>your post will be visible by everyone on this site, and will be shared on our social media pages by colonyfx</strong>
+            <form  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>analysis post</legend>
+                    {{ form.as_p }}
+                </fieldset>
+                <div class="btn-div">
+                    <button>publish</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script src="/static/jquary.js"></script>
+    <script src="/static/scripts.js"></script>
+</body>
+</html>
